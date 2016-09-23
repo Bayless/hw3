@@ -8,6 +8,31 @@ import occupations
 
 import random
 
+'''links:
+http://www.bls.gov/oes/current/oes190000.htm
+http://www.bls.gov/oes/current/oes110000.htm
+http://www.bls.gov/oes/current/oes250000.htm
+http://www.bls.gov/oes/current/oes230000.htm
+http://www.bls.gov/oes/current/oes510000.htm
+http://www.bls.gov/oes/current/oes390000.htm
+http://www.bls.gov/oes/current/oes270000.htm
+http://www.bls.gov/oes/current/oes450000.htm
+http://www.bls.gov/oes/current/oes530000.htm
+http://www.bls.gov/oes/current/oes130000.htm
+http://www.bls.gov/oes/current/oes210000.htm
+http://www.bls.gov/oes/current/oes470000.htm
+http://www.bls.gov/oes/current/oes490000.htm
+http://www.bls.gov/ooh/food-preparation-and-serving/home.htm
+http://www.bls.gov/oes/current/oes370000.htm
+http://www.bls.gov/ooh/architecture-and-engineering/home.htm
+http://www.bls.gov/ooh/sales/home.htm
+http://www.bls.gov/oes/current/oes330000.htm
+http://www.bls.gov/oes/current/oes290000.htm
+http://www.bls.gov/ooh/office-and-administrative-support/home.htm
+http://www.bls.gov/oes/current/oes150000.htm
+http://www.bls.gov/oes/current/oes310000.htm
+'''
+
 occupations = open('occupations.csv','r')
 occupations = occupations.read()
 occupations = occupations.split('\n')
