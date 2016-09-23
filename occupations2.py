@@ -1,0 +1,74 @@
+#Bayle Smith-Salzberg
+#SoftDev1 pd8
+#HW03 -- ..and Now Enjoy Its Contents
+#2016-09-23
+
+from flask import Flask, render_template
+import occupations
+
+import random
+
+occupations = open('occupations.csv','r')
+occupations = occupations.read()
+occupations = occupations.split('\n')
+occupations = occupations[1:len(occupations)-1] #removes the job class and the total
+Occups = []
+percentages = []
+for x in range (0,len(occupations)-1):
+    lastCom = occupations[x].rfind(",")
+    y = occupations[x][:lastCom]#spliting a row into occupation adn percetage seperately
+    if y.count(',')>0:#if there is more than one comma
+        y = y[1:len(y)-1]#get rid of the ""
+    #print y
+    q = occupations[x][lastCom+1:]
+    #print q
+    Occups.append(y) #occupations is all the stuff before the last comma
+    percentages.append(float(q)) #percent is after the last comma
+prof_dict = {}
+for i in range(len(occupations)-1):#making it a dict
+    prof_dict[Occups[i]] = percentages[i]
+    
+#for j in prof_dict:
+    #print j, prof_dict[j]
+
+cumSum = {}#makin a dict  with cummulative percentages
+yo = 0
+for g in prof_dict:
+    #print g
+    #print prof_dict[g]
+    cumSum[g] = prof_dict[g] + yo
+    yo += prof_dict[g]
+#print cumSum['Life, Physical and Social Science']
+cumLo = {}#makin a dict shifted one down from cumSum (1st place is 0)
+yay = 0
+for h in prof_dict:
+    cumLo[h] = yay
+    yay = cumSum[h]
+#print cumLo['Production']
+   
+def randMan():
+    randNum = random.random() * 100
+    
+    for i in cumSum:
+        if (cumSum[i] >= randNum) and (cumLo[i] < randNum):
+            return i
+    print i
+
+    
+
+mHello=Flask(__name__)
+@mHello.route("/")
+def hello_world():
+    return "goodbye world"
+
+@mHello.route("/display table")
+def plugIn():
+    return render_template("html.html",var="occupations table", fool=prof_dict, rand = randMan())
+@mHello.route("/random occupation")
+
+def soemthingNew():
+    return render_template("html.html",var="random occupation", fool=prof_dict)
+
+if __name__=="__main__":
+    mHello.debug = True
+    mHello.run()
