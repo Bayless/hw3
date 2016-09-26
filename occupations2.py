@@ -86,7 +86,7 @@ mHello=Flask(__name__)
 def hello_world():
     return "goodbye world"
 
-@mHello.route("/display table")
+@mHello.route("/occupations")
 def plugIn():
     return render_template("html.html",var="occupations table", fool=prof_dict, rand = randMan())
 @mHello.route("/random occupation")
