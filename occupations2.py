@@ -14,7 +14,7 @@ def hello_world():
 
 @mHello.route("/occupations")
 def plugIn():
-    return render_template("html.html",var="occupations table", fool=util.testmod.prof_dict, rand = util.testmod.randMan())
+    return render_template("template.html",var="occupations table", fool=util.testmod.prof_dict, rand = util.testmod.randMan())
 
 if __name__=="__main__":
     mHello.debug = True
