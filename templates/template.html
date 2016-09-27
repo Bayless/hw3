@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<title>{{var}}
+</title>
+<head>
+<h1>Occupations</h1>
+</head>
+<body>
+<table border=1>
+<th>occupation</th>
+<th>Percentage</th>
+{%- for item in fool%}
+
+<tr><td>{{item}}</td><td>{{fool[item]}}</td></tr>
+
+{%- endfor %}
+randomly assigned occupation: {{rand}}
+</body>
+</html>
