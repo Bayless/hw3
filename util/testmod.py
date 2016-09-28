@@ -25,7 +25,7 @@ http://www.bls.gov/ooh/office-and-administrative-support/home.htm
 http://www.bls.gov/oes/current/oes150000.htm
 http://www.bls.gov/oes/current/oes310000.htm
 '''
-occupations = open('../data/occupations.csv','r')
+occupations = open('data/occupations.csv','r')
 occupations = occupations.read()
 occupations = occupations.split('\n')
 occupations = occupations[1:len(occupations)-1] #removes the job class and the ttal
